@@ -1,5 +1,7 @@
+
+
 export default (state = {adventures: [], loading: false}, action) => {
-    switch(action.type){
+    switch(action.type) {
         case("LOADING_ADVENTURES"):
             return {...state, loading: true}
         case ("ADVENTURES_LOADED"):
@@ -13,7 +15,7 @@ export default (state = {adventures: [], loading: false}, action) => {
         case ("ADVENTURE_DELETED"):
             return { ...state, 
                     loading: false, 
-                    todos: state.adventures.filter(adventure => adventure.id != action.payload) }
+                    todos: state.adventures.filter(adventure => adventure.id !== action.payload) }
         default:
             return state
     }    

@@ -2,10 +2,11 @@
 import './App.css';
 import React, { Component } from 'react'
 import { connect} from 'react-redux'
-
+import { fetchAdventures, addAdventure, deleteAdventure } from './actions/adventures'
+import { fetchEvents, addEvent, deleteEvent } from './actions/events'
 class App extends Component {
   componentDidCatch(){
-    
+
   }
 
   render () {
@@ -38,6 +39,6 @@ const mapStateToProps = state => {
 
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {fetchAdventures, addAdventure, deleteAdventure, fetchEvents, addEvent, deleteEvent})(App);
 
 

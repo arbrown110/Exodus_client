@@ -13,7 +13,7 @@ export default (state = {events: [], loading: false}, action) => {
         case ("EVENT_DELETED"):
             return { ...state, 
                     loading: false, 
-                    events: state.todos.filter(event => event.id != action.payload) }
+                    events: state.todos.filter(event => event.id !== action.payload) }
         default:
             return state
     }    

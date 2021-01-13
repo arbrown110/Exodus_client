@@ -4,6 +4,10 @@ import React, { Component } from 'react'
 import { connect} from 'react-redux'
 
 class App extends Component {
+  componentDidCatch(){
+    
+  }
+
   render () {
     const adventures = this.props.adventures.map((adventure, i) => {
       return <li key={i}>{adventure.image_url}</li>

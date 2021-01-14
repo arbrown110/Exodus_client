@@ -1,8 +1,8 @@
+let newAdventure
 
-
-export default (state = {adventures: [], loading: false}, action) => {
+export default function adventureReducer(state = {adventures: [], loading: false}, action)  {
     switch(action.type) {
-        case("LOADING_ADVENTURES"):
+        case("FETCH_ADVENTURES"):
             return {...state, loading: true}
         case ("ADVENTURES_LOADED"):
             return { ...state, loading: false, adventures: action.payload }
@@ -16,7 +16,22 @@ export default (state = {adventures: [], loading: false}, action) => {
             return { ...state, 
                     loading: false, 
                     todos: state.adventures.filter(adventure => adventure.id !== action.payload) }
+        
+        
+        case("FETCH_EVENTS"):
+            return { ...state, events: action.payload.events }
+        case ("LOADING_EVENTS"):
+            return {...state, loading: true}
+
+        case ("ADDING_EVENT"):
+            newAdventure = {...action.payload.adventure, events: [...action.payload.adventure.events, action.payload.event]}
+            return {...state,
+              adventures: [...state.adventures.filter(adv => adv.id !== action.payload.adventure.id).concat(newAdventure)]}
+        case ("DELETING_EVENT"):
+            newAdventure =  {...action.payload.adventure, events: action.payload.adventure.events.filter(eve => eve.id !== action.payload.event.id)}
+            return {...state,
+              adventures: [...state.adventures.filter(adv => adv.id !== action.payload.adventure.id).concat(newAdventure)]}
         default:
-            return state
+            return state;
     }    
 }

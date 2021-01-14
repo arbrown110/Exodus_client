@@ -5,8 +5,8 @@ import { connect} from 'react-redux'
 import { fetchAdventures, addAdventure, deleteAdventure } from './actions/adventures'
 import { fetchEvents, addEvent, deleteEvent } from './actions/events'
 class App extends Component {
-  componentDidCatch(){
-
+  componentDidMount(){
+    this.props.fetchAdventures()
   }
 
   render () {

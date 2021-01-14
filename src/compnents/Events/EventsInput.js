@@ -44,4 +44,4 @@ class EventInput extends Component {
     }
 }
 
-export default connect(null, {addEvent})(EventInput)
+export default connect(null, {addEvent})(EventInput);

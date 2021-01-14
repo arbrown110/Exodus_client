@@ -32,9 +32,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     adventures: state.adventureReducer.adventures,
-    loading: state.adventureReducer.loading,
-    events: state.eventReducer.events,
-    eventloading: state.eventReducer.loading
+    loading: state.adventureReducer.loading
   }
 
 }

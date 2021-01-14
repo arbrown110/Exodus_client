@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Card, Button, Grid } from 'semantic-ui-react';
 import EventsContainer from '../../containers/EventsContainer'
 import { connect } from 'react-redux'
 import { deleteAdventure } from '../../actions/adventuresActions'

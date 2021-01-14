@@ -7,7 +7,7 @@ class Events extends Component {
     const { events, adventure } = this.props
 
     const eventList = events.map((event, index) => {
-      return <Event key={index} adventure={adventure} event={event} deleteTask={this.props.deleteEvent}/>
+      return <Event key={index} adventure={adventure} event={event} deleteEvent={this.props.deleteEvent}/>
     })
 
     return (

@@ -1,42 +1,32 @@
 //import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-import React, { Component } from 'react'
-import { connect} from 'react-redux'
-import { fetchAdventures, addAdventure, deleteAdventure } from './actions/adventures'
-import { fetchEvents, addEvent, deleteEvent } from './actions/events'
+
+import { NavLink } from 'react-router-dom';
+import { Layout, Header, Navigation, Content } from 'react-mdl'
+import { connect } from 'react-redux'
+
 class App extends Component {
-  componentDidMount(){
-    this.props.fetchAdventures()
-  }
-
-  render () {
-    const adventures = this.props.adventures.map((adventure, i) => {
-      return <li key={i}>{adventure.image_url}</li>
-    })
-    const events = this.props.events.map((event, i) => {
-      return <li key={i}>{event.title}</li>
-    }) 
-
+  render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <h3>Enter (picture above or background) Also Navbar</h3>
-        </header>
-        <ul>{this.props.loading? <h3>.......Wait</h3> : adventures}</ul>
-        <ul>{this.props.loading? <h3>.......Wait</h3> : events}</ul>
-      </div>
+      <div className="demo-big-content">
+        <Layout>
+          <Header className="header-color" title="Exodus : Sierra Leone" scroll>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/adventures">What Have I done</NavLink>
+          <NavLink to="/about">About</NavLink>
+              <Navigation>
+              </Navigation>
+              </Header>
+              <Content>
+              
+              </Content>
+            </Layout>
+    </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    adventures: state.adventureReducer.adventures,
-    loading: state.adventureReducer.loading
-  }
-
-}
-
-export default connect(mapStateToProps, {fetchAdventures, addAdventure, deleteAdventure, fetchEvents, addEvent, deleteEvent})(App);
+export default connect()(App)
 
 
